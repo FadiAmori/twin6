@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Amorri-Fadi-Twin6": {
+    "projectName": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/amorri-fadi-twin6",
+            "outputPath": "dist/project-name",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css","node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]
           },
           "configurations": {
             "production": {
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Amorri-Fadi-Twin6:build:production"
+              "browserTarget": "projectName:build:production"
             },
             "development": {
-              "browserTarget": "Amorri-Fadi-Twin6:build:development"
+              "browserTarget": "projectName:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Amorri-Fadi-Twin6:build"
+            "browserTarget": "projectName:build"
           }
         },
         "test": {
@@ -88,6 +88,8 @@
             ],
             "styles": [
               "src/styles.css"
+              
+
             ],
             "scripts": []
           }

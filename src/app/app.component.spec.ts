@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Amorri-Fadi-Twin6'`, () => {
+  it(`should have as title 'projectName'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Amorri-Fadi-Twin6');
+    expect(app.title).toEqual('projectName');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Amorri-Fadi-Twin6 app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('projectName app is running!');
   });
 });
