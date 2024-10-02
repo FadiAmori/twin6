@@ -10,6 +10,8 @@ import { HomeComponent } from './componenets/home/home.component';
 
 import { HighlightDirective } from './highlight.directive';
 import { ListecategoriesComponent, ContainsPipe } from './componenets/listecategories/listecategories.component'; // Update path as necessary
+import { ProductModule } from './features/product/product.module';
+import { ProductComponent } from './features/product/product/product.component';
 
 
 @NgModule({
@@ -25,9 +27,10 @@ import { ListecategoriesComponent, ContainsPipe } from './componenets/listecateg
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProductModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,1 +1,20 @@
-<p>product works!</p>
+<div class="container">
+    <div class="row">
+      <!-- List of filtered categories using the pipe -->
+      <div *ngFor="let product of products" class="product-item" [ngClass]="{'highlight': product.highlight}">
+        <div>
+          {{element.name}}
+        </div>
+        <img 
+          [src]="element.image" 
+          alt="{{ element.name }}" 
+          class="img-fluid h-50 w-75">
+        <div>
+          <!-- Like button and counter -->
+          <button (click)="incrementLike(element)">Like</button> 
+          <span>{{element.nblike}} likes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
