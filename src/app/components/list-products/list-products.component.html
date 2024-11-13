@@ -1,0 +1,36 @@
+<div class="container" style="margin-top:30px">
+    <div class="row">
+      <!-- Search Input Field -->
+      <div class="col-12">
+        Search: <input class="form-control" style="margin-bottom:30px" name="title" [(ngModel)]="title">
+      </div>
+  
+      <!-- Iterate over products and filter based on title -->
+      <ng-container *ngFor="let c of listProducts | filter:title">
+        <div class="col-md-4">
+          <!-- Pass product details to app-card -->
+          <app-card 
+            (addToShortList)="addToShortList($event)" 
+            [id]="c.id" 
+            [title]="c.name" 
+            [available]="true" 
+            [image]="c.image"
+            [price]="c.price"
+            [nb_likes]="c.nb_likes"
+            [brand]="c.brand">
+          </app-card>
+        </div>
+      </ng-container>
+    </div>
+  
+    <!-- Display the Shortlist -->
+    <div style="margin-top: 30px;">
+      <h3>Shortlist:</h3>
+      <ul>
+        <li *ngFor="let product of shortList">
+          {{ product.name }} - {{ product.price }} dt
+        </li>
+      </ul>
+    </div>
+  </div>
+  

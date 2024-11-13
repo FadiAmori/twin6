@@ -1,0 +1,13 @@
+<div style="margin-bottom: 20px;">
+    <img [src]="image" [alt]="title" class="img-fluid h-50 w-75">
+    <h3>Title : {{ title | uppercase }}</h3>
+    <h2 *ngIf="price != null">Price : {{ price }}</h2>
+    <h2 *ngIf="nb_likes != null">Nb_likes : {{ nb_likes }}</h2>
+    <button class="btn btn-primary" *ngIf="available" [routerLink]="['/products/', id]">Voir produits</button>
+    <p class="alert alert-danger" *ngIf="!available">Catégorie non disponible</p>
+    <button (click)="deleteChild()">Delete</button>
+    <button *ngIf="nb_likes != null" (click)="likeChild()">Like</button>
+    <button (click)="addToShortListHandler()">Add to shortlist</button>
+    
+</div>
+  

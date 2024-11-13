@@ -1,11 +1,11 @@
-export class Product{
-    id!: number;
-    name!:string;
-    image!:string;
-    description!:string;
-    brand!:string;
-   categoryId!:number;
-   price!:number;
-   promotion!:number;
-   nblike !:number;
+export class Product {
+  id!: number;
+  name!: string;
+  image!: string;
+  categoryId!: number;
+  description!: string;
+  price!: number;
+  brand!: string;
+  promotion!: number;
+  nb_likes!: number;
 }

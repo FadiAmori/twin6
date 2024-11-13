@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <form #f="ngForm">
+            <div class="mb-3">
+                <label>ttel</label>
+                <input type="text" class="form-control" name="title" [(ngModel)]="category.title" required minlength="3" #title="ngModel">
+              <div *ngIf="title.invalid && (title.touched ||title.dirty)" class="alert alert-danger">
+            <div *ngIf="title.errors ! ['required']">jedjoeco</div>
+            <div *ngIf="title.errors ! ['minlength']">jedjo555eco</div></div>
+            </div>
+            <div class="mb-3">
+                <label>Image</label>
+                <input type="text" class="form-control" name="image" [(ngModel)]="category.image" required #image="ngModel">
+                <div *ngIf="image.invalid && (image.touched ||image.dirty)" class="alert alert-danger">
+                    <div *ngIf="image.errors ! ['required']">jedjoeco</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Descrption</label>
+                <input type="text" class="form-control" name="Descrption" [(ngModel)]="category.description" required minlength="10" #des="ngModel">
+                <div *ngIf="des.invalid && (des.touched ||des.dirty)" class="alert alert-danger">
+                    <div *ngIf="des.errors ! ['required']">jedjoeco</div>
+                    <div *ngIf="des.errors ! ['minlength']">jedjo555eco</div></div>
+                    </div>
+          
+            <div class="mb-3">
+            
+                <input type="submit" value="submit" class="btn-primary" (click)="add()" [disabled]="f.invalid">
+            </div>
+        </form>
+    </div>
+</div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "projectName": {
+    "Project4TWIN6": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/project-name",
+            "outputPath": "dist/project4-twin6",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css","node_modules/bootstrap/dist/css/bootstrap.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -60,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "projectName:build:production"
+              "browserTarget": "Project4TWIN6:build:production"
             },
             "development": {
-              "browserTarget": "projectName:build:development"
+              "browserTarget": "Project4TWIN6:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "projectName:build"
+            "browserTarget": "Project4TWIN6:build"
           }
         },
         "test": {
@@ -88,13 +91,14 @@
             ],
             "styles": [
               "src/styles.css"
-              
-
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c5b5e69e-3e1f-4143-bcf2-4911895add05"
   }
 }

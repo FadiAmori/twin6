@@ -3,34 +3,73 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TestComponent } from './test/test.component';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from './componenets/navbar/navbar.component';
-import { FooterComponent } from './componenets/footer/footer.component';
-import { HomeComponent } from './componenets/home/home.component';
-
-import { HighlightDirective } from './highlight.directive';
-import { ListecategoriesComponent, ContainsPipe } from './componenets/listecategories/listecategories.component'; // Update path as necessary
-import { ProductModule } from './features/product/product.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { ListcategoriesComponent } from './components/listcategories/listcategories.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SearchPricePipe } from './pipes/search-price.pipe';
+import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './features/product/product/product.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductModule } from './features/product/product.module';
+import { ProfileModule } from './features/profile/profile.module';
+import { AproposModule } from './features/apropos/apropos.module';
+import { ContactModule } from './features/contact/contact.module';
+import { FormCategoryComponent } from './components/form-category/form-category.component';
+import { CardComponent } from './components/card/card.component';
+import { ListProductsComponent } from './components/list-products/list-products.component';
 
-
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'category/add', component: FormCategoryComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'products', loadChildren:
+      () => import('./features/product/product.module')
+      .then(m => m.ProductModule)
+  },
+  {
+    path: 'contact', loadChildren:
+      () => import('./features/contact/contact.module')
+    .then(m=>m.ContactModule)
+  },
+  {
+    path: 'apropos', loadChildren:
+      () => import('./features/apropos/apropos.module')
+    .then(m=>m.AproposModule)
+  },
+  {
+    path: 'profile', loadChildren:
+      () => import('./features/profile/profile.module')
+    .then(m=>m.ProfileModule)
+  },
+  { path :'**' ,component:NotFoundComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
+    TestComponent,
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    ListecategoriesComponent,
-    HighlightDirective,
-    ContainsPipe
+    ListcategoriesComponent,
+    FilterPipe,
+    NotFoundComponent,
+    FormCategoryComponent,
+    ListProductsComponent,
+  
+  
   ],
   imports: [
-    FormsModule,
     BrowserModule,
-    AppRoutingModule,
-    ProductModule
+    FormsModule,
+    RouterModule.forRoot(routes),
+    CardComponent
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
