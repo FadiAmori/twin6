@@ -14,6 +14,4 @@ import { CardComponent } from 'src/app/components/card/card.component';
     ReactiveFormsModule,CardComponent],
   exports: [ProductComponent],
 })
-export class ProductModule {
-  
-}
+export class ProductModule {}

@@ -20,7 +20,7 @@ import { AproposModule } from './features/apropos/apropos.module';
 import { ContactModule } from './features/contact/contact.module';
 import { FormCategoryComponent } from './components/form-category/form-category.component';
 import { CardComponent } from './components/card/card.component';
-import { ListProductsComponent } from './components/list-products/list-products.component';
+import { FormValidationComponent } from "./form-validation/form-validation.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -59,7 +59,6 @@ const routes: Routes = [
     FilterPipe,
     NotFoundComponent,
     FormCategoryComponent,
-    ListProductsComponent,
   
   
   ],
@@ -67,8 +66,9 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    CardComponent
-  ],
+    CardComponent,
+    FormValidationComponent
+],
   providers: [],
   bootstrap: [AppComponent]
 })

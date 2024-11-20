@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Category } from 'src/app/models/category';
+import { ListcategoriesComponent } from '../listcategories/listcategories.component';
 
 @Component({
   selector: 'app-form-category',

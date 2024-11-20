@@ -1,35 +1,13 @@
 <div class="container">
-  <div class="row mb-3">
-    <!-- Input for searching products by price -->
-    <label for="searchPrice">Price:</label>
-    <input
-      id="searchPrice"
-      class="form-control"
-      name="searchPrice"
-      [(ngModel)]="price"
-    />
-  </div>
-
-  <!-- Message when no products are found -->
-  <div class="alert alert-danger" *ngIf="listProducts.length === 0">
-    Aucun produit !
-  </div>
-
-  <!-- Loop through products and apply searchPrice filter -->
-  <div class="row">
-    <div
-      *ngFor="let element of listProducts | searchPrice: price"
-      class="col-md-4 mb-4"
-    >
-      <app-card
-        (l)="likeParent($event)"
-        (addToShortList)="addToShortList($event)"
-        [id]="element.id"
-        [title]="element.name"
-        [image]="element.image"
-        [price]="element.price"
-        [nb_likes]="element.nb_likes"
-      ></app-card>
+    <div class="row">
+      Price :  <input class="form-control" name="searchPrice" [(ngModel)]="price">
+      <div class="alert alert-danger" *ngIf="listProducts.length == 0">
+        Aucun produit !
+      </div>
+        <div *ngFor="let element of listProducts | searchPrice:price" class="col-md-4" style="margin-bottom: 20px;">
+            <app-card (l)="likeParent($event)" [id]="element.id" [title]="element.name" [image]="element.image" [price]="element.price" [nb_likes]="element.nb_likes"></app-card>
+            <!-- </div> -->
+        </div>
     </div>
-  </div>
 </div>
+

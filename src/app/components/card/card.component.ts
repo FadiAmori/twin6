@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -9,45 +9,27 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, RouterModule],
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent {
+export class CardComponent implements OnChanges{
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
+  }
 
-  @Input() id!: number;
+  test:String="Test Children"
+  @Input({required:true}) id!: number;
   @Input() title!: string;
   @Input() available!: boolean;
   @Input() image!: string;
   @Input() price!: number;
   @Input() nb_likes!: number;
-  @Input() brand!: string;  // Add brand property here
 
-  @Output() d = new EventEmitter<number>(); // Event to delete
-  @Output() l = new EventEmitter<number>(); // Event for likes
+  @Output() d = new EventEmitter();
+  @Output() l = new EventEmitter();
 
-  // Method to trigger delete event
+  color!: string;
   deleteChild() {
-    this.d.emit(this.id); // Emit the id of the item to delete
+    this.d.emit(this.id);
   }
-
-  // Method to trigger like event
   likeChild() {
-    this.l.emit(this.id); // Emit the id of the item liked
+    this.l.emit(this.id)
   }
-
-
-  @Output() addToShortList = new EventEmitter<any>(); // Event to add to shortlist
-
-// Method to trigger add to shortlist event
-addToShortListHandler() {
-  console.log('Add to shortlist clicked!');
-  const product = {
-    id: this.id,
-    title: this.title,
-    image: this.image,
-    price: this.price,
-    nb_likes: this.nb_likes,
-    brand: this.brand
-  };
-  this.addToShortList.emit(product);
-}
-
-
 }

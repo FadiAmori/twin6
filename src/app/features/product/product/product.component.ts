@@ -15,28 +15,34 @@ export class ProductComponent {
 new c3();
 new c1();*/
   
-id!: number;
-shortList: Product[] = [];
-price: number = 0;
-userId: number = 1; // Mock user ID
+  id!: number;
+  
+  //Injection des dépendences : Design pattern
+  constructor(private activated: ActivatedRoute) {
+    //Path Param
+    //Méthode 1
+    this.activated.params.subscribe(param => this.id = param['id'])
+    
+    //Méthode 2
+    this.activated.paramMap.subscribe(param => console.log(param))
+    
+    //Méthode 3
+    console.log(this.activated.snapshot.params)
 
-constructor(private activated: ActivatedRoute) {
-  this.activated.params.subscribe((param) => (this.id = param['id']));
-  this.listProducts = this.listProducts.filter((p) => p.categoryId == this.id);
-}
+    //Query Param
+    this.activated.queryParams.subscribe((param) => console.log(param['name']));
 
-likeParent(id: number) {
-  this.listProducts.find((p) => p.id == id)!.nb_likes++;
-}
+    this.listProducts = this.listProducts.filter((p) =>
+      p.categoryId == this.id
+    )
 
-addToShortList(id: number): void {
-  const product = this.listProducts.find((p) => p.id === id);
-  if (product && !this.shortList.includes(product)) {
-    this.shortList.push(product);
   }
-}
 
+  likeParent(id: number) {
+    this.listProducts.find(p => p.id == id)!.nb_likes++;
+  }
 
+  price: number = 0;
   listProducts: Product[] = [
     {
       id: 1,

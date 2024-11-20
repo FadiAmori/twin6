@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { Category } from '../../models/category';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-listcategories',
@@ -7,6 +8,13 @@ import { Category } from '../../models/category';
   styleUrls: ['./listcategories.component.css'],
 })
 export class ListcategoriesComponent {
+
+  @ViewChildren(CardComponent) children!:QueryList<CardComponent>;
+  
+  ngAfterViewInit(){
+    console.log(this.children)
+  }
+
   title: string = '';
 
   categories: Category[] = [
@@ -69,7 +77,6 @@ export class ListcategoriesComponent {
     this.categories = this.categories.filter(c=>c.id!=id)
   }
 
-  
   afficheDescription(id: number) {
     //foreach : ES
     this.categories.forEach((element) => {
@@ -80,5 +87,9 @@ export class ListcategoriesComponent {
     //filter : ES
     let category = this.categories.filter((element) => element.id == id)[0];
     alert(category.description);
+  }
+
+  affichage(){
+    console.log("affichage child")
   }
 }
